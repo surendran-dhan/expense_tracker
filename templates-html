@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Expense Tracker</h2>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="number" name="house_rent" placeholder="House Rent" required>
+            <input type="number" name="water_bill" placeholder="Water Bill" required>
+            <input type="number" name="school_fees" placeholder="School Fees" required>
+            <input type="number" name="kitchen_spend" placeholder="Kitchen Spend" required>
+            <input type="number" name="other_spend" placeholder="Other Spend" required>
+            <button type="submit">Add users</button>
+        </form>
+
+        <h3>Expense List</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Rent</th>
+                <th>Water</th>
+                <th>School</th>
+                <th>Kitchen</th>
+                <th>Other</th>
+                <th>Total</th>
+            </tr>
+            {% for row in users %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td><strong>{{ row[7] }}</strong></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
